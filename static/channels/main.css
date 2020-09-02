@@ -1,0 +1,137 @@
+html {
+    height: 100%;
+}
+
+body {
+    /* background: #fff; */
+    background-color: #f1f1f1 !important;
+    color: #333333;
+    /* margin-top: 5rem; */
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+main {
+    margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*
+* Navigation bar
+*/
+
+.navbar {
+    font-size: 1.3rem;
+}
+
+.navbar-brand{
+	font-size: 1.70rem;
+}
+
+.soc-top{
+    color: #e0e0e0;
+}
+
+/* background color of navigation bar*/
+.bg-steel {
+    background-color: #121212e6;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+
+/*
+* Bootstrap cards - Home Page
+*/
+.home_bootstrap_cards_two_img_row{
+    margin-top: 1rem;
+}
+
+.home_bootstrap_card_art_img_bg {
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.home_bootstrap_cards_text{
+    /* font-size: 4vw; */
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 2px 2px rgba(0,0,0,.5);
+}
+
+
+/*
+ * Footer
+ */
+ .footer {
+    background: #222;
+    color: #788487;
+}
+
+.f-link{
+    border-right: 1px solid #495057;
+    border-left: 1px solid #495057;
+    color: #555d65;
+}
+
+.footer-bar {
+    text-align: center;
+    font-size: .85rem;
+    border-top: 1px solid #2c2c2c;
+}
+/*
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+*/
+
+/*
+ * channel.html
+ */
+
+
+/*
+ * category.html
+ */
+.img-category{
+    width:100%;
+}
+
+.category-hr-line{
+    margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;
+}
+
+
+/*
+* django forms
+*/
+/* login form */
+#id_username, #id_password, #id_email, #id_password1, #id_password2 {
+    width: 100%;
+}

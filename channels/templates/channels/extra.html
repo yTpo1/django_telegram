@@ -1,0 +1,77 @@
+<!-- channel.html -->
+<!-- Bottom 4 channel suggestions -->
+
+<div class="row shadow bg-white rounded mb-2" >
+    <h5 style="margin-left: 3px;">More channels: / Telegram channels you may like</h5>
+</div>
+
+<div class="row">
+    {% for i in i|rjust:3 %}
+    <div class="col-md shadow bg-white rounded mb-2" style=" margin-right: 5px;">
+        <a href="#">
+            <h5 class="">{{'Name of channel'}}</h5>
+            <div class="text-center">
+                <img class="img-responsive" src="{% static "channels/travel.jpg" %}" alt="Card image cap" style="width:100%;">
+            </div>
+            <!-- Move channel url to when open channel on its own -->
+            <h5 class="text-primary">{{'#genre #tag #genre'}}</h5>
+            <!-- in python get message and cut it to 50 characters -->
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+      {% if forloop.counter|divisibleby:5 or forloop.counter == 1 %}
+      <div class="row">
+      {% endif %}
+
+      {% if forloop.counter|divisibleby:4 %}
+      </div>
+      {% endif %}
+
+            {% if forloop.counter|divisibleby:2 and channels|length == forloop.counter and not forloop.counter|divisibleby:4 %}
+            <!-- is even -->
+            <div class="col-md"></div>
+            <div class="col-md"></div>
+            </div>
+        {% else %}
+            <!-- is odd -->
+
+        {% endif %}
+
+
+          {% if channels|length == 1 and forloop.counter == 1 %}
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        </div>
+      {% elif channels|length == 2 and forloop.counter == 2 %}
+<!--        <div class="col-md"></div>-->
+<!--        <div class="col-md"></div>-->
+<!--        </div>-->
+      {% elif channels|length == 3 and forloop.counter == 3 %}
+        <div class="col-md"></div>
+        </div>
+      {% endif %}
+
+
+      {% if 1+((channels|length-1)*4) %}
+
+        <!-- if length < 3 and length > 1 -->
+      {% if channels|length == 1 and forloop.counter == 1 %}
+
+       <!-- if total is less that a divisible by 4, add (1 or 2 or 3 collumns to look even) -->
+      {% if channels|length|divisibleby:3 and channels|length == forloop.counter  %}
+        <div class="col-md"></div>
+
+      <!-- if total is less that a divisible by 4, add (1 or 2 or 3 collumns to look even) -->
+      {% elif channels|length|divisibleby:2 and channels|length == forloop.counter and channels|length != 4 and channels|length != 8 and channels|length != 12 and channels|length != 16  %}
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+
+      <!-- if total is less that a divisible by 4, add (1 or 2 or 3 collumns to look even) -->
+      {% elif channels|length == forloop.counter and channels|length != 4 and channels|length != 8 and channels|length != 12 and channels|length != 16  %}
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+      {% endif %}

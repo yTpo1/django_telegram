@@ -1,0 +1,36 @@
+{% extends "channels/layout.html" %}
+
+{% block content %}
+  <h1 class="shadow bg-white rounded pl-2 pb-2">Categories</h1>
+
+  <!-- 2 img bg -->
+  {% for category in categories %}
+    <!--Find out if counter is even or odd to fit two images in one row-->
+    {% if forloop.counter|divisibleby:2 %}
+        <!-- is even -->
+    {% else %}
+        <!-- is odd -->
+        <div class="row home_bootstrap_cards_two_img_row">
+    {% endif %}
+
+        <div class="col-md">
+          <a href="{% url 'channels-category' category.name %}">
+              <div class="card bg-inverse">
+                <img class="card-img home_bootstrap_card_art_img_bg" src="{{ category.image.url }}" alt="Card image cap">
+                  <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                      <!-- <p class="card-title h5 text-primary">blue small text</p> -->
+                      <h4 class="card-title home_bootstrap_cards_text">{{ category.name }}</h4>
+                  </div>
+              </div>
+          </a>
+      </div>
+
+    {% if forloop.counter|divisibleby:2 %}
+        <!-- When odd, close. To fit two images in one row -->
+        </div>
+    {% endif %}
+  {% endfor %}
+
+  <p> </p>
+
+{% endblock content %}

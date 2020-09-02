@@ -1,0 +1,68 @@
+{% extends "channels/layout.html" %}
+
+{% block content %}
+  <div class="row shadow bg-white rounded">
+    <h1 class="pl-2 mb-2">Category - {{ category_name }}</h1>
+  </div>
+
+  <div class="card-i mt-2">
+
+  	<!-- <h3>More Stories</h3>
+  	<p class='text-muted'>Lenght: {{ channels|length }}You can put any information here you'd like.</p> -->
+
+      {% for channel in channels %}
+
+      {% if forloop.counter in first_row  %}
+        <div class="row">
+      {% endif %}
+
+        <div class="col-md shadow bg-white rounded mb-2 mr-2">
+            <a href="{% url 'channel-detail' channel.id %}">
+
+                <div class="text-center mt-3">
+                    <img class="img-responsive img-category" src="{{ channel.image.url }}" alt="Card image cap">
+                </div>
+
+                <h5 class="mt-2">{{ channel.title }}</h5>
+                <hr class="category-hr-line">
+
+                <!-- Move channel url to when open channel on its own -->
+                <h5 class="">Members: {{ channel.subscribers }}</h5>
+                <!-- in python get message and cut it to 50 characters -->
+                <p class="text-muted">Description: {{ channel.description }}</p>
+            </a>
+        </div>
+
+
+      {% if add_three and forloop.counter in first_row %}
+        {% if channels|length == forloop.counter %}
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        </div>
+        {% elif forloop.counter in fourth_row %}
+        </div>
+        {% endif %}
+      {% elif add_two and forloop.counter in second_row %}
+        {% if channels|length == forloop.counter %}
+        <div class="col-md"></div>
+        <div class="col-md"></div>
+        </div>
+        {% elif forloop.counter in fourth_row %}
+        </div>
+        {% endif %}
+      {% elif add_one and forloop.counter in third_row %}
+        {% if channels|length == forloop.counter %}
+        <div class="col-md"></div>
+        </div>
+        {% elif forloop.counter in fourth_row %}
+        </div>
+        {% endif %}
+      {% elif forloop.counter in fourth_row %}
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+  </div>
+{% endblock content %}

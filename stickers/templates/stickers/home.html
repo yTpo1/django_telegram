@@ -1,0 +1,32 @@
+{% extends "channels/layout.html" %}
+
+{% block content %}
+
+  <div class="row shadow bg-white rounded">
+    <h1 class="pl-2 mb-2">Stickers</h1>
+  </div>
+
+  <div class="card-i mt-2">
+
+    <div class="row">
+    {% for sticker in stickers %}
+
+      <div class="col shadow bg-light rounded mb-2 mr-2">
+        <a href="{{sticker.sticker_url}}">
+          <div class="text-center mt-3">
+              <img class="img-responsive img-category" src="{{ sticker.image.url }}" alt="Card image cap">
+          </div>
+          <hr class="category-hr-line">
+          <h2 class="">{{sticker.title}}</h2>
+        </a>
+      </div>
+
+      {% if forloop.counter == 5 %}
+        <div class="w-100"></div>
+      {% endif %}
+
+    {% endfor %}
+    </div>
+  </div>
+
+{% endblock content %}

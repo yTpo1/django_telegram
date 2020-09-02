@@ -1,0 +1,128 @@
+{% extends "channels/layout.html" %}
+
+{% block content %}
+<div class="shadow p-3 mb-3 bg-white rounded">
+{% if show_second_form == False %}
+<div class="row">
+<div class="col border ml-3">
+    {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+    {% endif %}
+
+
+    <form action="" method="get">
+        <label for="username">Enter channel username:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+            </div>
+            <input class="form-control" id="username" type="text" name="q">
+        </div>
+        <input class="btn btn-primary mt-2" type="submit" value="Search">
+    </form>
+</div>
+<div class="col">
+    <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Information:</h5>
+    <h6 class="card-subtitle mb-2 text-muted">The channel image and subscribers count, will be automatically fetched.</h6>
+      <hr>
+<!--    <p class="card-text">The channel image and subscribers count, will be automatically fetched.</p>-->
+<!--      <hr>-->
+    <p class="card-text"><p style="color:red; display: inline; font-weight: bold;">Warning!</p> Links leading to violence or pornographic content, are illegal and will be removed and the user will be banned!</p>
+<!--    <a href="#" class="card-link">Card link</a>-->
+<!--    <a href="#" class="card-link">Another link</a>-->
+  </div>
+</div>
+</div>
+</div>
+{% endif %}
+
+{% if show_second_form %}
+<div class="row">
+    <div class="col border m-2">
+<!--        <table class="table">-->
+<!--          <thead>-->
+<!--            <tr>-->
+<!--              <th scope="col">#</th>-->
+<!--              <th scope="col">Title</th>-->
+<!--              <th scope="col">Channel username</th>-->
+<!--              <th scope="col">Members</th>-->
+<!--            </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--            <tr>-->
+<!--              <th scope="row">#</th>-->
+<!--              <td>{{added_channel.title}}</td>-->
+<!--              <td>@{{added_channel.channel_username}}</td>-->
+<!--              <td>{{added_channel.subscribers}}</td>-->
+<!--            </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+        <h4>Submitted:</h4>
+
+        <table class="table">
+<!--          <thead>-->
+<!--            <tr>-->
+<!--              <th scope="col"></th>-->
+<!--              <th scope="col"></th>-->
+<!--            </tr>-->
+<!--          </thead>-->
+          <tbody>
+            <tr>
+              <th scope="row">Title</th>
+              <td>{{added_channel.title}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Channel username</th>
+              <td>@{{added_channel.channel_username}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Members</th>
+              <td>{{added_channel.subscribers}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Logo</th>
+              <td><img class="img-thumbnail" src="{{added_channel.image.url}}" alt="" style="max-width: 100px; border-radius: 10px; display: inline;"></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+<!--        <h5>Logo:</h5>-->
+<!--        <hr>-->
+<!--        <img class="img-thumbnail" src="{{added_channel.image.url}}" alt="" style="max-width: 100px; border-radius: 10px; display: inline;">-->
+<!--        <hr>-->
+<!--        <h5>Title: <small>{{added_channel.title}}</small></h5>-->
+<!--        <hr>-->
+
+<!--        <h5>Channel username: <small>@{{added_channel.channel_username}}</small></h5>-->
+<!--        <hr>-->
+<!--        <h5>Members: <small>{{added_channel.subscribers}}</small></h5>-->
+<!--        <hr>-->
+    </div>
+    <div class="col border m-2">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+
+                {{field.label_tag}}
+                {{field}}
+
+                {% if field.help_text  %}
+                  <small>{{ field.help_text }}</small>
+                {% endif %}
+
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</div>
+
+{% endif %}
+</div>
+{% endblock %}

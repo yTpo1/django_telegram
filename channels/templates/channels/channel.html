@@ -1,0 +1,54 @@
+{% extends "channels/layout.html" %}
+
+{% block content %}
+
+<!-- <div class="row" style="border: 1px solid red; margin-bottom: 8px; border-radius: 5px;">
+    <p > Directory / That / you / are / in</p>
+</div> -->
+
+<div class="row" style="margin-bottom: 8px;">
+    <div class="col-md shadow p-3 mb-3 bg-white rounded" style="margin-right: 7px;" > <!-- style="background: grey; border-style: solid;" -->
+        <img class="img-responsive" src="{{ channel.image.url }}" alt="Card image cap" style="width:100%;">
+
+        <h5 class="">@{{ channel.channel_username }}</h5>
+        <a class="btn btn-secondary mb-2" href="{{ channel.channel_url }}" type="button">View channel</a>
+        <div class="row">
+            <div class="col border">
+                <p>Language: {{ channel.language }}</p>
+            </div>
+            <div class="col border">
+                <p>Members: {{ channel.subscribers }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 shadow p-3 mb-3 bg-white rounded" > <!-- style="background: yellow;" -->
+        <h5 >Channel Name: {{ channel.title }}</h5> <!-- style="border-bottom: 1px solid black;" -->
+        <hr>
+        <h5>Description:</h5>
+        <p>{{ channel.description }}</p>
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}
+
+<!--
+Must have:
+* Image
+* button to View Channel
+
+
+Extra info on here:
+
+* channel url
+* full descrioption
+* all tags/ categories
+* language
+* rating?? stars
+
+* back to category that you came from
+* transition to this channel from this website -> when i get a db separate from website
+-->
