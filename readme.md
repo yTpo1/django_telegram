@@ -1,4 +1,4 @@
-# Telegram Channels Directory
+# Telegram Channels Repository
 I started this project as a means to learn how to create a complete full stack web app from scratch, inculding frontend, backend and deployment.
 
 While trying to think of ideas for the web app, I noticed that at the time Telegram didn't have a channel repository of their own,so I decided to write a web app that would let users register their channels on it. And with a quick search though the resitery other people might find channels that interest them.
